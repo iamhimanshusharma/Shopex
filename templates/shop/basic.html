@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/shop/css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="w3-sidebar w3-bar-block w3-xxlarge" style="width:70px; background-color: rgb(242, 242, 242);color: rgb(255, 98, 67);">
+        <a href="/profile" class="w3-bar-item w3-button"><img src="{{ data.shop_pic.url }}" alt="logout" width="40px"></a> 
+        <a href="/dashboard" class="w3-bar-item w3-button" style="margin-top: 100px;"><img src="{% static '/shop/images/home.png' %}" alt="logout" width="40px"></a> 
+        <a href="/add_products" class="w3-bar-item w3-button"><img src="{% static '/shop/images/products.png' %}" alt="logout" width="40px"></a> 
+        <a href="/settings" class="w3-bar-item w3-button"><img src="{% static '/shop/images/settings.png' %}" alt="logout" width="40px"></a>
+        <a href="/logout" class="w3-bar-item w3-button"><img src="{% static '/shop/images/logout.png' %}" alt="logout" width="40px"></a>
+      </div>
+      
+      {% block content %} {% endblock %}
+
+</body>
+</html>

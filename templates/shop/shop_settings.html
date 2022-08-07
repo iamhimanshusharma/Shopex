@@ -1,0 +1,25 @@
+{% extends 'shop/basic.html' %}
+{% load static %}
+{% block content %}
+      
+    <div style="margin-left:80px">  
+        <div class="w3-container">
+            <input type="text">
+            <input type="submit" value="Search">
+        </div>
+
+        <div class="w3-container">
+            <form action="#" method="POST" enctype="multipart/form-data">
+                <h4>Change Shop Name</h4>
+                <input type="text" style="border: 1px solid black;" value="{{ data.shop_name }}" placeholder="Change shop name">
+                <h4>Change Address</h4>
+                <input type="text">
+                <h4>Change Email</h4>
+                <input type="text">
+                <h4>Change Phone</h4>
+                <input type="text"><br>
+                <input type="submit" value="Go!" class="w3-btn w3-round-xxlarge" style="color:white;background-color: rgb(255, 98, 67); padding: 10px 50px;margin-top: 20px;">
+            </form>
+        </div>
+    </div>
+{% endblock %}

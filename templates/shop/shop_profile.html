@@ -1,0 +1,72 @@
+{% extends 'shop/basic.html' %}
+{% load static %}
+{% block content %}      
+      <div style="margin-left:70px">  
+        <div class="w3-container">
+            <form action="#" method="post" enctype="multipart/form-data" style="margin-top: 20px;">
+            <input type="text">
+            <input type="submit" value="Search">
+            </form>
+        </div>
+        <div class="w3-container">
+            <div class="w3-row">
+                <div class="w3-col w3-container m4 l3"  style="position: relative;">
+                    <img src="{{ data.shop_pic.url }}" alt="Profile picture" width="200px">
+                    <div  style="position: absolute; top: 140px; bottom: 0;margin-left: 145px; cursor: pointer;">
+                        <form action="/picture_change" method="post" enctype="multipart/form-data">{% csrf_token %}
+                            <img src="{% static '/shop/images/camera.png' %}" alt="Profile picture" width="50px" id="shown_to_click">
+                            <input type="text" name="shop_id" value="{{ data.shop_id }}" style="display: none;">
+                            <input type="file" name="profile_pic" id="really_clicked" style="display: none;" onchange="file_added()">
+                            <input type="submit" value="Change" style="display: none;" id="change_button">
+                        </form>
+                    </div>
+                </div>
+                <div class="w3-col w3-container m8 l9 ">  
+                    <h2>{{ data.shop_name }}</h2>
+                    <h3>{{ data.shop_id }}</h3>
+                    <div class="w3-container"  style="margin-top: 20px;">
+                        <div class="w3-col l3">
+                            <button class="w3-btn w3-round-xxlarge" style="background-color: rgb(255, 98, 67);color:white;padding: 10px 40px;">
+                                Call
+                            </button>
+                        </div>
+                        <div class="w3-col l3">
+                            <button class="w3-btn w3-round-xxlarge" style="background-color: rgb(255, 98, 67);color:white;padding: 10px 40px;">
+                                Email
+                            </button>
+                        </div>
+                        <div class="w3-col l3">
+                            <button class="w3-btn w3-round-xxlarge" style="background-color: rgb(255, 98, 67);color:white;padding: 10px 40px;">
+                                Followers
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var shown_to_click = document.getElementById('shown_to_click');
+        var really_clicked = document.getElementById('really_clicked');
+        var change_button = document.getElementById('change_button');
+        
+        shown_to_click.addEventListener("click", () => {
+            really_clicked.click();
+        })
+        
+        function file_added(){
+        var shown_to_click = document.getElementById('shown_to_click');
+        var really_clicked = document.getElementById('really_clicked');
+        var change_button = document.getElementById('change_button');
+        if(really_clicked.files.length>0)
+        {
+            change_button.style.display = 'block';
+        }
+        else{
+            change_button.style.display = 'none';
+        }
+        }
+        </script>
+{% endblock %}
+

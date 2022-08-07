@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/shop/css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="w3-container">
+        <h3>Shop Name</h3>
+    </div>
+    
+    <form action="/shop_registration" method="POST" enctype="multipart/form-data" class="w3-container w3-center">{% csrf_token %}
+        <input class="w3-input" type="text" name="shop_name" placeholder="Enter Shop Name...">
+        <input class="w3-input" type="text" name="shop_email" placeholder="Enter Email..." value="{{ request.session.email }}">
+        <input type="submit" value="Go!" class="w3-btn w3-round-xxlarge" style="color:white;background-color: rgb(255, 98, 67); padding: 10px 50px;margin-top: 20px;">
+      </form>
+</body>
+</html>

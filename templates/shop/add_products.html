@@ -1,0 +1,88 @@
+{% extends 'shop/basic.html' %}
+{% load static %}
+{% block content %}
+      
+    <div style="margin-left:70px">  
+        <div id="all_form">
+        <form action="/add_products" method="post" enctype="multipart/form-data">
+        <input type="text" placeholder="Product Name" name="product_name"><br>
+        <select name="category" id="" placeholder="Category">
+            <option value="" disabled selected>Choose Category</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+        </select><br>
+        <input type="number" name="quantity" placeholder="Quantity"><br>
+        <input type="number" name="price" placeholder="Price"><br>
+    </div>
+        <input type="submit" value="Add Product">
+        </form>
+
+        <button id="add" onclick="add_more()">+</button>
+    <div class="w3-container" id="just">
+        <h1 id="title">Hello himanshu</h1>
+    </div>
+    </div>
+
+<script>
+
+function add_more() {
+var br = document.createElement("br")
+var just = document.getElementById('all_form')
+var form = document.createElement("form")
+form.setAttribute("method", "post")
+form.setAttribute("enctype", "multipart/form-data")
+form.setAttribute("action", "/add_products")
+
+var p_name = document.createElement("input")
+p_name.type = "text"
+p_name.name = "product_name"
+p_name.placeholder = "Product Name"
+
+var category = document.createElement("select")
+var A = document.createTextNode("A")
+var B = document.createTextNode("B")
+var C = document.createTextNode("C")
+var d_option = document.createElement("option")
+var d_text = document.createTextNode("Choose Category")
+d_option.appendChild(d_text)
+d_option.selected
+d_option.disabled
+var option = document.createElement("option")
+option.appendChild(A)
+var option1 = document.createElement("option")
+option1.appendChild(B)
+var option2 = document.createElement("option")
+option2.appendChild(C)
+category.appendChild(d_option)
+category.appendChild(option)
+category.appendChild(option1)
+category.appendChild(option2)
+
+var quantity = document.createElement("input")
+quantity.type = "number"
+quantity.name = "quantity"
+quantity.placeholder = "Quantity"
+
+var price = document.createElement("input")
+price.type = "number"
+price.name = "price"
+price.placeholder = "Price"
+
+form.appendChild(br.cloneNode())
+form.appendChild(p_name)
+form.appendChild(br.cloneNode())
+form.appendChild(category)
+form.appendChild(br.cloneNode())
+form.appendChild(quantity)
+form.appendChild(br.cloneNode())
+form.appendChild(price)
+form.appendChild(br.cloneNode())
+just.appendChild(form)
+form.appendChild(br.cloneNode())
+}
+
+
+</script>
+
+{% endblock %}
